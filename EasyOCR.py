@@ -17,7 +17,7 @@ def getOCRListCoordinates(path):
     # coordinateslist contains the coordinates in the format that is required for the assignment
     coordinatesList = []
 
-    # clist contains the coordinates in a more universally accepted format, used to drawing bounding boxes for testing
+    # clist contains the coordinates in a more universally accepted format, used for drawing bounding boxes for testing and cropping the final images
     clist = []
 
     for i in range(len(Bounds)):
@@ -38,8 +38,8 @@ def getOCRListCoordinates(path):
 
 
     #Debugging
-    for i in coordinatesList:
-        print(i)
+    # for i in clist:
+    #     print(i)
 
     return clist,coordinatesList
 

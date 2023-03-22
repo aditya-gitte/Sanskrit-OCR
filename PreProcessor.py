@@ -48,8 +48,7 @@ def removeEnglishWordsfromImage(path, path2):
             for x in range(x0, x1):
                 for y in range(y0, y2):
                     pixels[x, y] = (255, 255, 255)
-    # testing
-    # image.show()
+
     image.save(path2)
 
 
