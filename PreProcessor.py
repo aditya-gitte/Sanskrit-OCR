@@ -54,4 +54,4 @@ def removeEnglishWordsfromImage(path, path2):
 
 
 #testing
-removeEnglishWordsfromImage('Images/3.jpg', 'output.jpg')
+# removeEnglishWordsfromImage('Images/3.jpg', 'output.jpg')

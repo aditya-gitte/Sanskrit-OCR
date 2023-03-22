@@ -10,8 +10,8 @@ def getOCRListCoordinates(path):
     reader = easyocr.Reader(['hi', 'mr'])
 
 
-    Bounds = reader.readtext(path, text_threshold=0.5, contrast_ths=0.35, adjust_contrast=0.05, add_margin=0.1,
-                             width_ths=1.5, decoder='wordbeamsearch')
+    Bounds = reader.readtext(path, text_threshold=0.75, contrast_ths=0.5, adjust_contrast=0.05, add_margin=0.1,
+                             width_ths=4, decoder='wordbeamsearch')
     finalList = []
 
     # coordinateslist contains the coordinates in the format that is required for the assignment
@@ -38,25 +38,25 @@ def getOCRListCoordinates(path):
 
 
     #Debugging
-    # for i in clist:
-    #     print(i)
+    for i in coordinatesList:
+        print(i)
 
-    return clist
-
-
+    return clist,coordinatesList
 
 
 
-def draw_boxes(list_of_coordinates, img_path):
+
+
+def draw_boxes(list_of_coordinates, img_path,output_path):
     img = cv2.imread(img_path)
     for i in list_of_coordinates:
         start_point = (i[0], i[1])
         end_point = (i[2], i[3])
         cv2.rectangle(img, start_point, end_point, color=(0, 255, 0), thickness=2)
-    cv2.imwrite("output.jpg",img)
+    cv2.imwrite(output_path,img)
 
 
 # testing
-list = getOCRListCoordinates('Images/3.jpg')
-draw_boxes(list, 'Images/3.jpg')
+# list = getOCRListCoordinates('output.jpg')
+# draw_boxes(list, 'output.jpg','output.jpg')
 
